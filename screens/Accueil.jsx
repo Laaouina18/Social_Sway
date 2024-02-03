@@ -6,11 +6,11 @@ import { useNavigation } from '@react-navigation/native';
 const Accueil = () => {
   const navigation = useNavigation();
   const data = DATA;
-
+console.log(data)
   return (
     <ScrollView>
       {data.map((user, index) => (
-        <Pressable key={index} onPress={() => navigation.navigate('Profile', { portfolio: user })}>
+        <Pressable key={index} onPress={() => navigation.navigate('Profile', { user: user })}>
           <View style={styles.postContainer}>
             <Image style={styles.img} source={{ uri: user.img }} />
             <View style={styles.postInfo}>

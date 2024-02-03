@@ -3,19 +3,19 @@ import { View, Text, ScrollView, StyleSheet, Image, Pressable } from 'react-nati
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const Profile = ({ route, navigation }) => {
-  const portfolio = route.params.portfolio;
+  const user = route.params.user;
 
   return (
     <ScrollView>
       <View style={styles.header}>
-        <Image style={styles.img} source={{ uri: portfolio.img }} />
+        <Image style={styles.img} source={{ uri: user.img }} />
       </View>
       <View style={styles.bioContainer}>
         <Text style={styles.bio}>Bio</Text>
-        <Text style={styles.bioDescription}>{portfolio.desc}</Text>
+        <Text style={styles.bioDescription}>{user.desc}</Text>
       </View>
       <View style={styles.photoContainer}>
-        {portfolio.photos.map((post, index) => (
+        {user.photos.map((post, index) => (
           <Pressable key={index} onPress={() => navigation.navigate('SinglePost', { post })}>
             <Image style={{ width: '100%', aspectRatio: 1 }} source={{ uri: post.url }} />
             <Text style={styles.photoTitle}>{post.title}</Text>
