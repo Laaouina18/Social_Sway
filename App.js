@@ -1,10 +1,17 @@
-import React from 'react'
-import AppNavigation from './navigations/AppNavigation'
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import Navigation from './Navigation';
 
-const App = () => {
+export default function App() {
   return (
-    <AppNavigation/>
-  )
+    <View style={styles.container}>
+      <Navigation />
+    </View>
+  );
 }
 
-export default App
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  }
+});
