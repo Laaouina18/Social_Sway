@@ -3,7 +3,6 @@ import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 
 const Pub = ({ route }) => {
   const post = route.params.post;
-
   return (
     <ScrollView>
       <Image source={{ uri: post.url }} style={{ width: '100%', aspectRatio: 1 }} />
