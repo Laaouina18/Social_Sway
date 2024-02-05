@@ -1,9 +1,10 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import TabNavigation from './Navbar';
-import ProfileScreen from '../screens/Profile';
-import SinglePost from '../screens/SinglePost';
+import Nvbar from './Navbar';
+import Profile from '../screens/Profile';
+import Pub from '../screens/Pub';
+import Navbar from './Navbar';
 
 const Stack = createNativeStackNavigator();
 
@@ -11,15 +12,15 @@ const MainNavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Home' screenOptions={{ statusBarColor: 'black', headerTintColor: "white", headerStyle: { backgroundColor: 'orange' } }}>
-        <Stack.Screen name='Home' component={TabNavigation} options={{ headerShown: false }} />
+        <Stack.Screen name='Home' component={Navbar} options={{ headerShown: false }} />
         <Stack.Screen
           name='Profile'
-          component={ProfileScreen}
-          options={({ route }) => ({ title: `Portfolio de ${route.params.portfolio.name}`, headerShadowVisible: false })}
+          component={Profile}
+          options={({ route }) => ({ title: `user de ${route.params.user.name}`, headerShadowVisible: false })}
         />
         <Stack.Screen
-          name='SinglePost'
-          component={SinglePost}
+          name='Pub'
+          component={Pub}
           options={({ route }) => ({ title: `${route.params.post.title}` })}
         />
       </Stack.Navigator>

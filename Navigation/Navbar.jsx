@@ -12,7 +12,7 @@ const Navbar = () => {
     <Tab.Navigator screenOptions={{tabBarStyle: {backgroundColor: 'orange'}}}>
       <Tab.Screen 
         name='Draw'
-        component={DrawNavigation}
+        component={Navigation}
         options={{
           title: 'Accueil',
           headerShown: false, 
@@ -22,7 +22,7 @@ const Navbar = () => {
       />
       <Tab.Screen 
         name='Favorie' 
-        component={FavorieScreen} 
+        component={Favorite} 
         options={{
           tabBarIcon: ({focused, color, size}) => (<Icon name='heart' color={color} size={size} />), 
           tabBarInactiveTintColor: 'white'
