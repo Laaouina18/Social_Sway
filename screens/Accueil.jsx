@@ -1,31 +1,32 @@
-import React from 'react';
-import { ScrollView, Pressable, Text } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import Setting from '../components/param';
-import user from '../components/user';
-import test from '../components/test';
-import { useSelector, useDispatch } from 'react-redux'; 
-import { hidePost, showPost } from '../redux/ActionTypes';
+import { ScrollView, Pressable, Text } from 'react-native'
+import React from 'react'
+import User from '../components/user';
+import { useDispatch, useSelector } from 'react-redux';
+import Param from '../components/Param';
+import { DATA } from '../data/usersData';
+import Setting from '../components/Setting';
 
 
-const Accueil = ({ navigation }) => {
-  const dispatch = useDispatch(); 
-  const { settingModalVisible, data } = useSelector((state) => state); 
+
+const Accueil= ({navigation}) => {
+
+  const visible = useSelector((state) => state.visible);
+  const data = useSelector((state) => state.data);
 
   return (
     <ScrollView>
-      {data &&
-        data.map((User, index) => (
-          <Pressable key={index} onPress={() => navigation.navigate('Profile', { User })}>
-            <user user={user} />
+      {
+        data && data.map((userprop, index) => (
+          <Pressable key={index} onPress={() => navigation.navigate('Profile', {userprop})}>
+            <User userprop={userprop} />
           </Pressable>
-        ))}
-      <test transparent={false} modalVisible={settingModalVisible}>
-        <Setting />
-      </test>
+        ))
+      }
+      <Setting transparent={false} visible={visible}>
+        <Text>Testest</Text>
+      </Setting>
     </ScrollView>
-  );
-};
+  )
+}
 
-export default Accueil;
+export default Accueil

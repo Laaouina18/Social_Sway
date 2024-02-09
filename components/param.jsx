@@ -1,17 +1,17 @@
 import { View, Text, Pressable, ScrollView, StyleSheet } from 'react-native'
 import React from 'react'
 import Icon from 'react-native-vector-icons/Ionicons'
-import SwitcherComponent from './Switcher'
-import { useAppDispatch } from '../hooks'
-import { hideModal } from '../redux/action'
+import Switcher from './Switcher'
+import { useDispatch } from 'react-redux'
+import { archiffer } from '../redux/actions'
 
-const SettingComponent = () => {
+const Param = () => {
 
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
 
   return (
     <View>
-      <Pressable onPress={() => dispatch(hideModal())} style={{position : 'absolute', top: '10%', right : 30}}>
+      	{/* <Pressable onPress={() => dispatch(archiffer())} style={{position : 'absolute', top: '10%', right : 30}}>
           <Icon name='close' size={30} />
         </Pressable>
         <ScrollView style={styles.container}>
@@ -21,14 +21,15 @@ const SettingComponent = () => {
             <View style={styles.hr} />
           </View>
           <View>
-            <SwitcherComponent label='Animaux' />
-            <SwitcherComponent label='Voyages' />
-            <SwitcherComponent label='Voitures' />
+            <Switcher label='Animaux' />
+            <Switcher label='Voyages' />
+            <Switcher label='Voitures' />
           </View>
           <Pressable onPress={() => alert('hihi')} style={styles.validateBtn}>
             <Text style={{color : 'white', textAlign: 'center', fontWeight : '600'}}>VALIDER LES PARAMETRES</Text>
           </Pressable>
-        </ScrollView>
+        </ScrollView> */}
+		<Text>Test</Text>
     </View>
   )
 }
@@ -66,4 +67,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default SettingComponent
+export default Param
